@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mintech - IT Solutions & Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Fixed Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #1e2952;
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-top {
+            background: #0f1629;
+            padding: 8px 0;
+            font-size: 13px;
+            color: #fff;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-top a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo-icon img{
+            width: 35px;
+            height: 35px;
+            /* text-align: center;
+            justify-content:center; */
+            display: flex;
+            background: #10d48c;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #10d48c;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #10d48c;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #0ebf7c;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #10d48c;
+        }
+
+        .btn-secondary:hover {
+            background: #10d48c;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Load Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        body {
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+            transition: background-image 1s ease-in-out;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(30, 41, 82, 0.7), rgba(30, 41, 82, 0.7));
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 100px;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            max-width: 550px;
+            line-height: 1.8;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .hero-content.fade-out h1,
+        .hero-content.fade-out p {
+            opacity: 0;
+        }
+
+        .hero-content.fade-in h1,
+        .hero-content.fade-in p {
+            opacity: 1;
+        }
+
+        .slider-controls {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 3;
+        }
+
+        .slider-arrow {
+            width: 55px;
+            height: 55px;
+            background: rgba(16, 107, 212, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 24px;
+            color: #fff;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .slider-arrow:hover {
+            background: #10d48c;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(16, 212, 140, 0.4);
+        }
+
+        /* Service Cards Section */
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: -80px auto 80px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+        }
+
+        .service-card.featured {
+            background: #10d48c;
+            color: #fff;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .service-card .icon {
+            width: 50px;
+            height: 50px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .service-card.featured .icon {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .read-more {
+            color: #10d48c;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-card.featured .read-more {
+            color: #fff;
+        }
+
+        /* About Section */
+        .about-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            color: #10d48c;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #1e2952;
+            margin-bottom: 15px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            color: #1e2952;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .check-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .check-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10d48c;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-family: cursive;
+            font-size: 32px;
+            color: #1e2952;
+        }
+
+        /* Services Grid Section */
+        .services-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .service-item {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-item.featured {
+            background: #10d48c;
+            color: #fff;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            margin: 0 auto 25px;
+            border-radius: 10px;
+        }
+
+        .service-item.featured .service-icon {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .service-item h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service-item p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .service-item.featured p {
+            color: #fff;
+        }
+
+        /* Solutions Section */
+        .solutions-section {
+            background: #1e2952;
+            color: #fff;
+            padding: 80px 0;
+        }
+
+        .solutions-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .solutions-text h2 {
+            font-size: 38px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .solution-card {
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .solution-icon {
+            width: 60px;
+            height: 60px;
+            background: #10d48c;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .solution-card h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #10d48c;
+            padding: 50px;
+            border-radius: 10px;
+        }
+
+        .contact-form h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .contact-form p {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-group select {
+            background: #fff;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #1e2952;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #0f1629;
+        }
+
+        /* Success Stories */
+        .stories-section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .story-card {
+            width: 100%;
+            height: 350px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .story-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Team Section */
+        .team-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .team-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .team-subtitle {
+            color: #10d48c;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .team-content h2 {
+            font-size: 32px;
+            color: #1e2952;
+            margin-bottom: 20px;
+        }
+
+        .team-content p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #666;
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .team-member {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            border: 3px solid #fff;
+            cursor: pointer;
+        }
+
+        .team-info {
+            margin-top: 20px;
+        }
+
+        .team-info h4 {
+            font-size: 20px;
+            color: #1e2952;
+        }
+
+        .team-info p {
+            color: #10d48c;
+            font-size: 14px;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #10d48c;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e2952;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #10d48c;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 60px;
+                flex-direction: column;
+                background: #1e2952;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 30px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .hero-content {
+                padding: 0 80px;
+            }
+
+            .slider-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+
+            .about-content,
+            .solutions-content {
+                grid-template-columns: 1fr;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 26px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .hero-content {
+                padding: 0 60px;
+            }
+
+            .slider-controls {
+                padding: 0 15px;
+            }
+
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .service-cards,
+            .services-grid,
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon"><img src="Logo.jpg"></div>
+                Mintech
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#company">Company</a></li>
+                <li><a href="#features">IT Solutions</a></li>
+                <li><a href="#marketplace">Marketplace</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Latest Software<br>To Your Possible<br>Customers!!</h1>
+            <p>We are experienced professionals who understand that it services is changing, and are true partners who care about your success.</p>
+            <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+        <div class="slider-controls">
+            <div class="slider-arrow" id="prevSlide">‹</div>
+            <div class="slider-arrow" id="nextSlide">›</div>
+        </div>
+    </section>
+
+    <!-- Service Cards -->
+    <div class="service-cards">
+        <div class="service-card">
+            <div class="icon"></div>
+            <h3>Software Asset</h3>
+            <p>All aspects of your software assets enabling everything to run more efficiently and profitably.</p>
+            <a href="#" class="read-more">Read More →</a>
+        </div>
+        <div class="service-card">
+            <div class="icon"></div>
+            <h3>Enterprise Service</h3>
+            <p>Extend proven tech best practices with modern application management and software development.</p>
+            <a href="#" class="read-more">Read More →</a>
+        </div>
+        <div class="service-card">
+            <div class="icon"></div>
+            <h3>Custom Request</h3>
+            <p>Build business request templates with associated approval processes for your workflow.</p>
+            <a href="#" class="read-more">Read More →</a>
+        </div>
+        <div class="service-card featured">
+            <div class="icon"></div>
+            <h3>Offering Insights</h3>
+            <p>Obtaining insights, without where common use metrics does leads low quality life digital experience.</p>
+            <a href="#" class="read-more">Find Your Solution →</a>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="section-title">
+            <div class="section-subtitle">Let's Talk Availability of Your Business</div>
+            <h2>Keep your business safe &<br>ensure high availability.</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-image"></div>
+            <div class="about-text">
+                <h3>Keep your business safe & ensure high availability.</h3>
+                <p>Improve efficiency, leverage tech, and provide better customer experiences with the modern technology services available all over the world. Our skilled personnel, utilising the latest processing software, combined with decades of experience.</p>
+                <ul class="check-list">
+                    <li>Delivered on more than 450 client interactions</li>
+                    <li>Provided by experts to help challenge critical activities</li>
+                    <li>Complemented with own perspectives and advise</li>
+                </ul>
+                <a href="#" class="btn btn-primary">More About Us</a>
+                <div class="signature">Ashwani Singh</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="section-title">
+            <div class="section-subtitle">Nationwide Service, Local Expertise</div>
+            <h2>Our technology allows you to<br>offer the latest software to your<br>possible customers!</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-item featured">
+                <div class="service-icon"></div>
+                <h3>IT Management Services</h3>
+                <p>IT ecosystem delivers local strategies and implementation to support business needs.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+            <div class="service-item">
+                <div class="service-icon"></div>
+                <h3>Cyber Security Services</h3>
+                <p>Stop your business and manage risk with a comprehensive view of security across all systems.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+            <div class="service-item">
+                <div class="service-icon"></div>
+                <h3>Cloud Computing Services</h3>
+                <p>Cloud computing is the on-demand availability of computer system resources.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+            <div class="service-item">
+                <div class="service-icon"></div>
+                <h3>IT Consulting Services</h3>
+                <p>Bring us all about all of the challenges, concepts and infrastructure and we deliver the best solutions.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+            <div class="service-item">
+                <div class="service-icon"></div>
+                <h3>Software Dev Services</h3>
+                <p>Best design and series, web frameworks and we deliver the best for solutions that you deserve.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+            <div class="service-item">
+                <div class="service-icon"></div>
+                <h3>Backup & Recovery Services</h3>
+                <p>Offer core plan robust operational profile that includes more high available business tech systems.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions-section" id="features">
+        <div class="solutions-content">
+            <div class="solutions-text">
+                <h2>Easy solutions for all different IT problems, keep business safe & ensure high availability</h2>
+                <a href="#" class="btn btn-primary">Get Started</a>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon"></div>
+                        <div>
+                            <h4>Software Asset Management</h4>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon"></div>
+                        <div>
+                            <h4>Privileged Access Management</h4>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon"></div>
+                        <div>
+                            <h4>Software License Management</h4>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon"></div>
+                        <div>
+                            <h4>Enterprise Service Management</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Perfect Solutions For Your Business!</h3>
+                <p>If you have any questions or need help, feel free to contact with our team.</p>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Name (required)">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email (required)">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="inquiry (required)">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Phone (optional)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select>
+                            <option>IT Management Services</option>
+                            <option>Cyber Security</option>
+                            <option>Cloud Computing</option>
+                            <option>Software Development</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select>
+                            <option>Additional fields (optional)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Estimate your budget">
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="stories-section">
+        <div class="section-title">
+            <div class="section-subtitle">Latest from Portfolio</div>
+            <h2>Success Stories</h2>
+        </div>
+        <div class="stories-grid">
+            <div class="story-card"></div>
+            <div class="story-card"></div>
+            <div class="story-card"></div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-content">
+            <div class="team-subtitle">100% Satisfied Clients Over The Globe</div>
+            <h2>If you're looking for a rewarding career and the chance to make an impact, you've come to the right place. We will transform your business through our techniques!</h2>
+            <div class="team-members">
+                <div class="team-member"></div>
+                <div class="team-member"></div>
+                <div class="team-member"></div>
+                <div class="team-member"></div>
+                <div class="team-member"></div>
+            </div>
+            <div class="team-info">
+                <h4>John Peter</h4>
+                <p>UI/UX Designer</p>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="logo" style="margin-bottom: 20px;">
+                    <div class="logo-icon"></div>
+                    Mintech
+                </div>
+                <p>Your trusted partner for IT solutions and services worldwide.</p>
+            </div>
+            <div class="footer-column">
+                <h3>IT Solutions</h3>
+                <ul>
+                    <li><a href="#">IT Management</a></li>
+                    <li><a href="#">Cyber Security</a></li>
+                    <li><a href="#">Cloud Computing</a></li>
+                    <li><a href="#">IT Consulting</a></li>
+                    <li><a href="#">Software Development</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li>123 Business Street</li>
+                    <li>New York, NY 10001</li>
+                    <li>Phone: +1 (555) 123-4567</li>
+                    <li>Email: info@mintech.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Mintech. All rights reserved. Designed with excellence.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header Background on Scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 41, 82, 0.98)';
+            } else {
+                header.style.background = '#1e2952';
+            }
+        });
+
+        // Slider Functionality
+        let currentSlide = 0;
+        const slides = [
+            {
+                title: "Latest Software<br>To Your Possible<br>Customers!!",
+                text: "We are experienced professionals who understand that it services is changing, and are true partners who care about your success.",
+                background: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
+            },
+            {
+                title: "Transform Your<br>Business With<br>Technology!!",
+                text: "Innovative IT solutions designed to drive growth and efficiency in your business operations.",
+                background: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&q=80"
+            },
+            {
+                title: "Secure & Reliable<br>IT Services<br>24/7 Support!!",
+                text: "Round-the-clock support and maintenance to keep your business running smoothly.",
+                background: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&q=80"
+            }
+        ];
+
+        const heroSection = document.querySelector('.hero');
+        const heroContent = document.querySelector('.hero-content');
+        const prevSlide = document.getElementById('prevSlide');
+        const nextSlide = document.getElementById('nextSlide');
+
+        // Set initial background
+        heroSection.style.backgroundImage = `url('${slides[0].background}')`;
+
+        function updateSlide(fadeOut = true) {
+            if (fadeOut) {
+                heroContent.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    heroContent.querySelector('h1').innerHTML = slides[currentSlide].title;
+                    heroContent.querySelector('p').textContent = slides[currentSlide].text;
+                    heroSection.style.backgroundImage = `url('${slides[currentSlide].background}')`;
+                    
+                    heroContent.classList.remove('fade-out');
+                    heroContent.classList.add('fade-in');
+                    
+                    setTimeout(() => {
+                        heroContent.classList.remove('fade-in');
+                    }, 500);
+                }, 300);
+            } else {
+                heroContent.querySelector('h1').innerHTML = slides[currentSlide].title;
+                heroContent.querySelector('p').textContent = slides[currentSlide].text;
+                heroSection.style.backgroundImage = `url('${slides[currentSlide].background}')`;
+            }
+        }
+
+        prevSlide.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlide();
+        });
+
+        nextSlide.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide();
+        });
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide();
+        }, 5000);
+
+        // Play Button Animation
+        const playButton = document.querySelector('.play-button');
+        playButton.addEventListener('click', () => {
+            alert('Video player would open here');
+        });
+
+        // Team Slider
+        const dots = document.querySelectorAll('.dot');
+        const teamMembers = [
+            { name: "John Peter", role: "UI/UX Designer" },
+            { name: "Sarah Johnson", role: "Senior Developer" },
+            { name: "Mike Wilson", role: "Project Manager" }
+        ];
+        let currentTeamMember = 0;
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                dots.forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+                currentTeamMember = index;
+                updateTeamInfo();
+            });
+        });
+
+        function updateTeamInfo() {
+            document.querySelector('.team-info h4').textContent = teamMembers[currentTeamMember].name;
+            document.querySelector('.team-info p').textContent = teamMembers[currentTeamMember].role;
+        }
+
+        // Form Validation
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = form.querySelector('input[placeholder*="Name"]').value;
+            const email = form.querySelector('input[placeholder*="Email"]').value;
+            
+            if (!name || !email) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            alert('Thank you for your submission! We will contact you soon.');
+            form.reset();
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and other elements
+        document.querySelectorAll('.service-card, .service-item, .story-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Counter Animation
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+
+        // Parallax Effect for Hero Section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight);
+            }
+        });
+
+        // Sticky Header
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
