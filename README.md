@@ -1,4 +1,4 @@
-# Mintech IT Services – Official Website
+Mintech IT Services – Official Website
 
 ![Project Banner](https://via.placeholder.com/1200x400/1e2952/10d48c?text=Mintech+IT+Services)
 
@@ -7,9 +7,9 @@
 [![Live Demo](#)](https://theashwanidev.github.io/mintech-it-services-website/)
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
----
 
-## 📋 Table of Contents
+
+📋 Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -24,36 +24,36 @@
 - [License](#license)
 - [Contact](#contact)
 
----
 
-## 🎯 Overview
+
+🎯 Overview
 
 Mintech IT Services is a modern, fully responsive website designed for IT service companies. This project showcases professional web development practices including semantic HTML, modern CSS techniques, and vanilla JavaScript functionality.
 
-### Purpose
+ Purpose
 - Provide a professional online presence for IT service companies
 - Showcase services, portfolio, and company information
 - Enable easy contact and inquiry submission
 - Deliver fast, accessible, and SEO-friendly experience
 
-### Target Audience
+ Target Audience
 - Business clients seeking IT solutions
 - Companies looking for IT consulting
 - Organizations needing cybersecurity services
 - Enterprises requiring cloud computing solutions
 
----
 
-## ✨ Features
 
-### Design & UX
+✨ Features
+
+ Design & UX
 - ✅ **Fully Responsive** – Optimized for all devices (mobile, tablet, desktop)
 - ✅ **Modern UI/UX** – Clean, professional design with smooth animations
 - ✅ **Dynamic Hero Slider** – Auto-rotating slides with custom backgrounds
 - ✅ **Smooth Scrolling** – Enhanced navigation experience
 - ✅ **Interactive Elements** – Hover effects, transitions, form validation
 
-### Technical Features
+ Technical Features
 - ✅ **Semantic HTML5** – Proper document structure and accessibility
 - ✅ **Modern CSS3** – Flexbox, Grid, Custom Properties, Animations
 - ✅ **Vanilla JavaScript** – No dependencies, pure ES6+
@@ -62,7 +62,7 @@ Mintech IT Services is a modern, fully responsive website designed for IT servic
 - ✅ **Cross-Browser Compatible** – Works on all modern browsers
 - ✅ **Accessible** – WCAG compliant, keyboard navigation
 
-### Sections
+Sections
 - Hero section with dynamic slider
 - Service cards showcase
 - About company section
@@ -72,9 +72,9 @@ Mintech IT Services is a modern, fully responsive website designed for IT servic
 - Team member showcase
 - Comprehensive footer
 
----
 
-## 🛠️ Tech Stack
+
+ 🛠️ Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
@@ -87,9 +87,9 @@ Mintech IT Services is a modern, fully responsive website designed for IT servic
 
 **No frameworks or libraries** – Pure vanilla code for maximum performance and minimal dependencies.
 
----
 
-## 📸 Screenshots
+
+📸 Screenshots
 
 ### Desktop View
 ![Desktop Homepage](https://via.placeholder.com/1200x800/1e2952/ffffff?text=Desktop+View)
@@ -100,9 +100,9 @@ Mintech IT Services is a modern, fully responsive website designed for IT servic
 ### Services Section
 ![Services](https://via.placeholder.com/1200x600/1e2952/10d48c?text=Services+Section)
 
----
 
-## 📁 Project Structure
+
+ 📁 Project Structure
 ```
 mintech-it-services-website/
 │
@@ -124,9 +124,9 @@ mintech-it-services-website/
     └── main.js            # Main JavaScript file
 ```
 
----
 
-## 🚀 Installation
+
+🚀 Installation
 
 ### Prerequisites
 - A modern web browser (Chrome, Firefox, Safari, Edge)
@@ -153,7 +153,6 @@ python -m http.server 8000
 # Then visit: http://localhost:8000
 ```
 
----
 
 ## 🌐 Deployment
 
@@ -170,7 +169,6 @@ python -m http.server 8000
 - **Vercel** – Automatic Git integration
 - **Firebase Hosting** – Google's hosting solution
 
----
 
 ## ⚡ Performance
 
@@ -187,7 +185,6 @@ python -m http.server 8000
 - Minimal DOM manipulation
 - Reduced HTTP requests
 
----
 
 ## 🌍 Browser Support
 
@@ -201,7 +198,6 @@ python -m http.server 8000
 
 **Mobile Support:** ✅ iOS Safari, Chrome Mobile, Samsung Internet
 
----
 
 ## 🤝 Contributing
 
@@ -213,27 +209,20 @@ Contributions are welcome! If you'd like to improve this project:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
----
 
 ## 📄 License
 
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
----
 
 ## 📬 Contact
 
 **Ashwani**  
 Frontend Developer | Institutional & IT Service Websites
 
-- 📧 Email: your.email@example.com
-- 🌐 Portfolio: [yourportfolio.com](#)
-- 💼 LinkedIn: [linkedin.com/in/yourprofile](#)
-- 🐦 Twitter: [@yourhandle](#)
+- 📧 Email: whydoyouevenmailme@gmail.com
 
 **Project Link:** [https://github.com/TheAshwaniDev/mintech-it-services-website](https://github.com/TheAshwaniDev/mintech-it-services-website)
-
----
 
 ## 🙏 Acknowledgments
 
@@ -242,7 +231,6 @@ Frontend Developer | Institutional & IT Service Websites
 - Images from Unsplash (placeholder)
 - Community feedback and support
 
----
 
 *Built with ❤️ and clean code*
 ```
